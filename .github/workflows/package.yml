@@ -1,0 +1,19 @@
+name: Package report assets
+on:
+  workflow_dispatch:
+  push:
+    branches: [master]
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/upload-artifact@v4
+        with:
+          name: klykov-report-assets
+          path: |
+            route1_1200.jpg
+            route2_1200.jpg
+            tec9_report.jpg
+            cable_report.jpg
+          if-no-files-found: error
